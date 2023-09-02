@@ -1,12 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Routes from "./components/Routes";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [darkTheme, SetDarkTheme] = useState(false);
 
-  return <></>;
+  const toggleDarkTheme = () => {};
+  return (
+    <>
+      <div className={darkTheme ? "dark" : "light"}>
+        <div className="bg-gray-100 dark:bg-gray-900 dark:text-gray-200 min-h-screen light:text-black">
+          <Navbar darkTheme={darkTheme} SetDarkTheme={SetDarkTheme} />
+          <Routes />
+          <Footer />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default App;
